@@ -8,3 +8,29 @@ if (Package.templating && Package['reactive-var']) {
         return is_dev.get();
     });
 }
+
+// ifCond
+if (Package.templating) {
+    Package.templating.Template.registerHelper('ifCond', function (v1, operator, v2) {
+        switch (operator) {
+            case '==':
+                return (v1 == v2);
+            case '===':
+                return (v1 === v2);
+            case '<':
+                return (v1 < v2);
+            case '<=':
+                return (v1 <= v2);
+            case '>':
+                return (v1 > v2);
+            case '>=':
+                return (v1 >= v2);
+            case '&&':
+                return (v1 && v2);
+            case '||':
+                return (v1 || v2);
+            default:
+                return null;
+        }
+    });
+}
