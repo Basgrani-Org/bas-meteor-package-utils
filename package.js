@@ -11,6 +11,7 @@ Package.onUse(function(api) {
     // Use
     api.use('underscore');
     api.use('jquery');
+    api.use('check');
     api.use(['templating', 'reactive-var'], ['client'], {
         weak: true
     });
@@ -26,6 +27,7 @@ Package.onUse(function(api) {
 
     // Common
     api.addFiles('common/helps.js');
+    api.addFiles('common/match.js');
     api.addFiles('common/object.js');
     api.addFiles('common/string.js');
 
