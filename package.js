@@ -1,6 +1,6 @@
 Package.describe({
     name: 'basgrani:bas-meteor-utils',
-    version: '0.1.0',
+    version: '0.1.1',
     summary: 'Utilities for Meteor',
     git: 'https://github.com/Basgrani-Org/bas-meteor-utils'
 });
