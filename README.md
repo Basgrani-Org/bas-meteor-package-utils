@@ -1,3 +1,7 @@
-# Basgrani - Meteor Utils
+# Utilities for Meteor (v1.4+)
 
-## Utilities for Meteor
+## Install
+
+```
+npm install bas-meteor-utils
+```

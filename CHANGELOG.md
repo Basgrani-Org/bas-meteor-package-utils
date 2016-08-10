@@ -1,9 +1,9 @@
 ## CHANGELOG
 
-### v0.1.0 (Mar 05, 2016)
+### v1.0.0 (Aug 10, 2016)
 
 **New**
-- Initial commit
+- Frist commit
 
 **Updates**
 - ...

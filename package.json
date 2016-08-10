@@ -1,0 +1,30 @@
+{
+  "name": "bas-meteor-utils",
+  "version": "1.0.0",
+  "description": "Utilities for Meteor.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Basgrani@github.com/Basgrani-Org/bas-meteor-utils.git"
+  },
+  "keywords": [
+    "meteor",
+    "utils"
+  ],
+  "author": "Jorge Gonzalez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Basgrani-Org/bas-meteor-utils/issues"
+  },
+  "homepage": "https://github.com/Basgrani-Org/bas-meteor-utils#readme",
+  "dependencies": {
+    "meteor-node-stubs": "~0.2.0",
+    "underscore": "^1.8.3",
+    "jquery": "^2.1.4",
+    "exit": "0.1.2",
+    "glob": "~ 3.2.1"
+  }
+}
