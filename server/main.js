@@ -83,6 +83,6 @@ var _start_point = BasMTR;
 // Methods
 Meteor.methods({
     'BasMTR:is_dev': function() {
-        return _this.is_dev();
+        return BasMTR.server.is_dev();
     }
 });
