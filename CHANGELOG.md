@@ -1,6 +1,6 @@
 ## CHANGELOG
 
-### v1.0.1 (Aug 11, 2016)
+### v1.1.0 (Aug 11, 2016)
 
 **New**
 - Add new utils
