@@ -43,14 +43,14 @@ var _start_point = BasMTR;
 
     /* --------------------------------------- */
     /* Is Dev
-     /* --------------------------------------- */
+    /* --------------------------------------- */
     _this.is_dev = function() {
         return process.env.NODE_ENV === 'development';
     };
 
     /* --------------------------------------- */
     /* Log start
-     /* --------------------------------------- */
+    /* --------------------------------------- */
     _this.log_start = function() {
         if (_this.is_dev()) {
             var app = appName ? appName : 'Untitled Application';
@@ -83,6 +83,6 @@ var _start_point = BasMTR;
 // Methods
 Meteor.methods({
     'BasMTR:is_dev': function() {
-        return BasMTR.server.is_dev();
+        return _this.is_dev();
     }
 });
