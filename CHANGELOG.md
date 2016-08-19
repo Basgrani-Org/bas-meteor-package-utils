@@ -1,5 +1,10 @@
 ## CHANGELOG
 
+### v1.1.3 (Aug 19, 2016)
+
+**New**
+- Add feature for Connect to external server (BACKEND_URL)
+
 ### v1.1.2 (Aug 12, 2016)
 
 **Fixes**
