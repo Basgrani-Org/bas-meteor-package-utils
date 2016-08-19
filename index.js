@@ -3,18 +3,18 @@ if(typeof BasMTR === "undefined"){BasMTR = {};}
 /* jshint +W020 */
 exports.BasMTR = BasMTR;
 
-if(BasMTR.utils_isInit){return;}
+var _is_init = BasMTR.utils_isInit;
 
-require('./lib');
+if(!_is_init){ require('./lib'); }
 
 // Is Server
 if(Meteor.isServer){
-    require('./server');
+    if(!_is_init){ require('./server'); }
 }
 
 // Is Client
 if(Meteor.isClient){
-    require('./client');
+    if(!_is_init){ require('./client'); }
 }
 
 BasMTR.utils_isInit = true;
