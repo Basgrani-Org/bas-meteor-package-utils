@@ -1,26 +1,24 @@
 var colors = require('colors');
 colors.enabled = true;
 
-// Set start point
-var _start_point = BasMTR;
-
 // Server
 (function (mtr) {
-    _start_point.server = {};
-    var _this = function(){return _start_point.server;}();
+    // Set start point
+    if(!BasMTR.server){ BasMTR.server = {}; }
+    var _this = function(){return BasMTR.server;}();
 
     _this.os = require('os');
 
     /* --------------------------------------- */
     /* Hostname
-     /* --------------------------------------- */
+    /* --------------------------------------- */
     _this.hostname = function() {
         return _this.os.hostname();
     };
 
     /* --------------------------------------- */
     /* Addresses
-     /* --------------------------------------- */
+    /* --------------------------------------- */
     _this.addresses = function() {
         var _i;
         var _len;
@@ -67,22 +65,35 @@ var _start_point = BasMTR;
         }
     };
 
-    // Meteor Init
-    _this.mtr_init = function() {
-        //...
+    /* --------------------------------------- */
+    /* Set backend server
+    /* --------------------------------------- */
+    _this.set_backend_server = function(backendUrl) {
+        var _backendUrl = backendUrl || process.env.BACKEND_URL;
+        if (_backendUrl) {
+            // Connect to external server (BACKEND_URL)
+            __meteor_runtime_config__.BACKEND_URL = _backendUrl;
+            __meteor_runtime_config__.ACCOUNTS_CONNECTION_URL = _backendUrl;
+        }
+    };
+
+    // Init only one once
+    _this.init = function() {
+
+        // Methods
+        mtr.methods({
+            'BasMTR:is_dev': function() {
+                return _this.is_dev();
+            }
+        });
     };
 
     // Meteor startup
     mtr.startup(function () {
-        // Init
-        _this.mtr_init();
+        // ...
     });
 
-}( Meteor ));
+    // Init
+    if(!_this.is_init){_this.init();_this.is_init = true;}
 
-// Methods
-Meteor.methods({
-    'BasMTR:is_dev': function() {
-        return BasMTR.server.is_dev();
-    }
-});
+}( Meteor ));
