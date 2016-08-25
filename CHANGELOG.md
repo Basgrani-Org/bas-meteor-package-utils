@@ -1,5 +1,10 @@
 ## CHANGELOG
 
+### v1.1.6 (Aug 25, 2016)
+
+**Fixes**
+- Dependencies
+
 ### v1.1.5 (Aug 22, 2016)
 
 **Fixes**
