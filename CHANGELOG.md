@@ -1,5 +1,10 @@
 ## CHANGELOG
 
+### v1.1.7 (Aug 29, 2016)
+
+**New**
+- jquery utils
+
 ### v1.1.6 (Aug 25, 2016)
 
 **Fixes**
