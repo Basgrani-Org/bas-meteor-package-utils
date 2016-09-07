@@ -1,5 +1,12 @@
 ## CHANGELOG
 
+### v1.1.8 (Sept 07, 2016)
+
+**New**
+- add gravatar util
+- add user util
+- add reactive array
+
 ### v1.1.7 (Aug 29, 2016)
 
 **New**

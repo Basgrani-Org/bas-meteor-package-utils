@@ -1,19 +1,23 @@
-jQuery = require('jquery');
+require('jquery');
 
 // Client
 (function (mtr, $) {
     // Define start point
-    if(!BasMTR.jquery_utils){ BasMTR.jquery_utils = {}; }
-    var _this = function(){return BasMTR.jquery_utils;}();
+    if (!BasMTR.jquery_utils) {
+        BasMTR.jquery_utils = {};
+    }
+    var _this = function () {
+        return BasMTR.jquery_utils;
+    }();
 
     _this.window_load = false;
-    
+
     /* --------------------------------------- */
     /* Remove Classes by Prefix
     /* --------------------------------------- */
     $.fn.remove_classes_by_prefix = function (prefix) {
-        this.each(function(i, el) {
-            var classes = el.className.split(" ").filter(function(c) {
+        this.each(function (i, el) {
+            var classes  = el.className.split(" ").filter(function (c) {
                 return c.lastIndexOf(prefix, 0) !== 0;
             });
             el.className = $.trim(classes.join(" "));
@@ -22,16 +26,16 @@ jQuery = require('jquery');
     };
 
     // Init
-    _this.init_$ = function() {
+    _this.init_$ = function () {
         //...
     };
 
     // Update
-    _this.update = function() {
+    _this.update = function () {
         // ...
     };
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         // Init
         _this.init_$();
 
@@ -39,20 +43,20 @@ jQuery = require('jquery');
         _this.update();
 
         // Resize
-        $(window).resize( function() {
+        $(window).resize(function () {
 
             _this.update();
 
         });
 
         // Load complete
-        $(window).load(function(){
+        $(window).load(function () {
             _this.window_load = true;
         });
     });
 
     // Init only one once
-    _this.init = function() {
+    _this.init = function () {
         //...
     };
 
@@ -62,6 +66,9 @@ jQuery = require('jquery');
     });
 
     // Init
-    if(!_this.is_init){_this.init();_this.is_init = true;}
+    if (!_this.is_init) {
+        _this.init();
+        _this.is_init = true;
+    }
 
-}( Meteor, jQuery ));
+}(Meteor, jQuery));

@@ -1,13 +1,15 @@
-if(typeof global.BasMTR === "undefined"){global.BasMTR = {};}
+if (typeof global.BasMTR === "undefined") {
+    global.BasMTR = {};
+}
 
 require('./lib');
 
 // Is Server
-if(Meteor.isServer){
+if (Meteor.isServer) {
     require('./server');
 }
 
 // Is Client
-if(Meteor.isClient){
+if (Meteor.isClient) {
     require('./client');
 }

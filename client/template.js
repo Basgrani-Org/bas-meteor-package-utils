@@ -1,19 +1,23 @@
 // Template
 (function (mtr) {
     // Define start point
-    if(!BasMTR.template){ BasMTR.template = {}; }
-    var _this = function(){return BasMTR.template;}();
+    if (!BasMTR.template) {
+        BasMTR.template = {};
+    }
+    var _this = function () {
+        return BasMTR.template;
+    }();
 
     // Init only one once
-    _this.init = function() {
+    _this.init = function () {
 
         // Is Dev
         if (Template) {
             _this.is_dev = new ReactiveVar(false);
-            mtr.call('BasMTR:is_dev', function(error, result) {
+            mtr.call('BasMTR:is_dev', function (error, result) {
                 _this.is_dev.set(result);
             });
-            Template.registerHelper('is_dev', function() {
+            Template.registerHelper('is_dev', function () {
                 return _this.is_dev.get();
             });
         }
@@ -50,6 +54,9 @@
     });
 
     // Init
-    if(!_this.is_init){_this.init();_this.is_init = true;}
+    if (!_this.is_init) {
+        _this.init();
+        _this.is_init = true;
+    }
 
-}( Meteor ));
+}(Meteor));
