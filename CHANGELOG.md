@@ -1,5 +1,9 @@
 ## CHANGELOG
 
+### vNEXT
+
+...
+
 ### v1.1.8 (Sept 07, 2016)
 
 **New**
