@@ -1,33 +1,33 @@
 {
-  "name": "bas-meteor-utils",
-  "version": "1.1.8",
-  "description": "Utilities for Meteor.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://Basgrani@github.com/Basgrani-Org/bas-meteor-utils.git"
-  },
-  "keywords": [
-    "meteor",
-    "utils"
-  ],
-  "author": "Jorge Gonzalez",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Basgrani-Org/bas-meteor-utils/issues"
-  },
-  "homepage": "https://github.com/Basgrani-Org/bas-meteor-utils#readme",
-  "dependencies": {
-    "meteor-node-stubs": "~0.2.0",
-    "underscore": "^1.8.3",
-    "crypto-md5": "^1.0.0",
-    "jquery": "^2.1.4",
-    "colors": "^1.1.2",
-    "exit": "0.1.2",
-    "glob": "~ 3.2.1",
-    "minimatch": "^3.0.3"
-  }
+    "name"        : "bas-meteor-utils",
+    "version"     : "1.1.8",
+    "description" : "Utilities for Meteor.",
+    "main"        : "dist/index.js",
+    "scripts"     : {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository"  : {
+        "type": "git",
+        "url" : "git+https://Basgrani@github.com/Basgrani-Org/bas-meteor-utils.git"
+    },
+    "keywords"    : [
+        "meteor",
+        "utils"
+    ],
+    "author"      : "Jorge Gonzalez",
+    "license"     : "MIT",
+    "bugs"        : {
+        "url": "https://github.com/Basgrani-Org/bas-meteor-utils/issues"
+    },
+    "homepage"    : "https://github.com/Basgrani-Org/bas-meteor-utils#readme",
+    "dependencies": {
+        "meteor-node-stubs": "~0.2.0",
+        "underscore"       : "^1.8.3",
+        "jquery"           : "^2.1.4",
+        "crypto-js"        : "^3.1.9-1",
+        "colors"           : "^1.1.2",
+        "exit"             : "0.1.2",
+        "glob"             : "~3.2.1",
+        "minimatch"        : "^3.0.3"
+    }
 }

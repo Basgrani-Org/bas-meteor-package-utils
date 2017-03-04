@@ -1,42 +1,48 @@
+"use strict";
+
 //https://github.com/ManuelDeLeon/ReactiveArray/
 
-var ReactiveArray,
-    extend  = function (child, parent) {
-        for (var key in parent) {
-            if (parent.hasOwnProperty(key) && hasProp.call(parent, key)) {
-                child[key] = parent[key];
-            }
+var ReactiveArray = void 0,
+    extend = function extend(child, parent) {
+    for (var key in parent) {
+        if (parent.hasOwnProperty(key) && hasProp.call(parent, key)) {
+            child[key] = parent[key];
         }
-        function Ctor() {
-            this.constructor = child;
-        }
+    }
+    function Ctor() {
+        this.constructor = child;
+    }
 
-        Ctor.prototype = parent.prototype;
-        child.prototype = new Ctor();
-        child.__super__ = parent.prototype;
-        return child;
-    },
+    Ctor.prototype = parent.prototype;
+    child.prototype = new Ctor();
+    child.__super__ = parent.prototype;
+    return child;
+},
     hasProp = {}.hasOwnProperty;
 
-ReactiveArray = (function (superClass) {
-    var isArray;
+ReactiveArray = function (superClass) {
+    var isArray = void 0;
 
     extend(ReactiveArray, superClass);
 
-    isArray = function (obj) {
+    isArray = function isArray(obj) {
         return obj instanceof Array;
     };
 
     function ReactiveArray(p1, p2) {
-        var dep, item, j, len, pause;
-        dep          = null;
-        pause        = false;
+        var dep = void 0,
+            item = void 0,
+            j = void 0,
+            len = void 0,
+            pause = void 0;
+        dep = null;
+        pause = false;
         this.changed = function () {
             if (dep && !pause) {
                 return dep.changed();
             }
         };
-        this.depend  = function () {
+        this.depend = function () {
             return dep.depend();
         };
         if (isArray(p1)) {
@@ -51,7 +57,7 @@ ReactiveArray = (function (superClass) {
         if (!(dep instanceof Tracker.Dependency)) {
             dep = new Tracker.Dependency();
         }
-        this.pause  = function () {
+        this.pause = function () {
             pause = true;
             return pause;
         };
@@ -77,41 +83,45 @@ ReactiveArray = (function (superClass) {
     };
 
     ReactiveArray.prototype.push = function () {
-        var item;
+        var item = void 0;
         item = ReactiveArray.__super__.push.apply(this, arguments);
         this.changed();
         return item;
     };
 
     ReactiveArray.prototype.unshift = function () {
-        var item;
+        var item = void 0;
         item = ReactiveArray.__super__.unshift.apply(this, arguments);
         this.changed();
         return item;
     };
 
     ReactiveArray.prototype.pop = function () {
-        var item;
+        var item = void 0;
         item = ReactiveArray.__super__.pop.apply(this, arguments);
         this.changed();
         return item;
     };
 
     ReactiveArray.prototype.shift = function () {
-        var item;
+        var item = void 0;
         item = ReactiveArray.__super__.shift.apply(this, arguments);
         this.changed();
         return item;
     };
 
     ReactiveArray.prototype.remove = function (valueOrPredicate) {
-        var i, predicate, removedValues, underlyingArray, value;
+        var i = void 0,
+            predicate = void 0,
+            removedValues = void 0,
+            underlyingArray = void 0,
+            value = void 0;
         underlyingArray = this;
-        removedValues   = [];
-        predicate       = typeof valueOrPredicate === "function" ? valueOrPredicate : function (value) {
+        removedValues = [];
+        predicate = typeof valueOrPredicate === "function" ? valueOrPredicate : function (value) {
             return value === valueOrPredicate;
         };
-        i               = 0;
+        i = 0;
         while (i < underlyingArray.length) {
             value = underlyingArray[i];
             if (predicate(value)) {
@@ -136,7 +146,10 @@ ReactiveArray = (function (superClass) {
     };
 
     ReactiveArray.prototype.concat = function () {
-        var a, j, len, ret;
+        var a = void 0,
+            j = void 0,
+            len = void 0,
+            ret = void 0;
         ret = this.array();
         for (j = 0, len = arguments.length; j < len; j++) {
             a = arguments[j];
@@ -177,15 +190,14 @@ ReactiveArray = (function (superClass) {
     };
 
     ReactiveArray.prototype.splice = function () {
-        var ret;
+        var ret = void 0;
         ret = ReactiveArray.__super__.splice.apply(this, arguments);
         this.changed();
         return ret;
     };
 
     return ReactiveArray;
-
-})(Array);
+}(Array);
 
 // Set start point
 BasMTR.ReactiveArray = ReactiveArray;

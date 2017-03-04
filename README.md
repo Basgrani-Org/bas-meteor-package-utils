@@ -5,7 +5,7 @@
 ## Install
 
 ```
-npm install bas-meteor-utils
+meteor npm install bas-meteor-utils
 ```
 
 ## Backers
