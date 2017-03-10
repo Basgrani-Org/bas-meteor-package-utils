@@ -18,6 +18,8 @@ const Server_ = ((mtr) => {
 
     let _appName = 'Untitled Application';
 
+    let _backendUrl;
+
     // ------------------------------------------------------------------------
     // Class Definition
     // ------------------------------------------------------------------------
@@ -41,6 +43,14 @@ const Server_ = ((mtr) => {
 
         static set appName(name) {
             _appName = name;
+        }
+
+        static get backendUrl() {
+            return _backendUrl;
+        }
+
+        static set backendUrl(url) {
+            _backendUrl = url;
         }
 
         static get hostname() {
@@ -97,7 +107,7 @@ const Server_ = ((mtr) => {
 
         // Set backend server
         static setBackendServer() {
-            let _backendUrl = backendUrl || process.env.BACKEND_URL;
+            let _backendUrl = Server_._backendUrl || process.env.BACKEND_URL;
             if (_backendUrl) {
                 // Connect to external server (BACKEND_URL)
                 __meteor_runtime_config__.BACKEND_URL             = _backendUrl;

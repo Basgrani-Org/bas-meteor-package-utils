@@ -36,6 +36,8 @@ var Server_ = function (mtr) {
 
     var _appName = 'Untitled Application';
 
+    var _backendUrl = void 0;
+
     // ------------------------------------------------------------------------
     // Class Definition
     // ------------------------------------------------------------------------
@@ -81,7 +83,7 @@ var Server_ = function (mtr) {
         }, {
             key: 'setBackendServer',
             value: function setBackendServer() {
-                var _backendUrl = backendUrl || process.env.BACKEND_URL;
+                var _backendUrl = Server_._backendUrl || process.env.BACKEND_URL;
                 if (_backendUrl) {
                     // Connect to external server (BACKEND_URL)
                     __meteor_runtime_config__.BACKEND_URL = _backendUrl;
@@ -105,6 +107,14 @@ var Server_ = function (mtr) {
             },
             set: function set(name) {
                 _appName = name;
+            }
+        }, {
+            key: 'backendUrl',
+            get: function get() {
+                return _backendUrl;
+            },
+            set: function set(url) {
+                _backendUrl = url;
             }
         }, {
             key: 'hostname',
