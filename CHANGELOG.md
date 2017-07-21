@@ -1,5 +1,10 @@
 ## CHANGELOG
 
+### v1.2.1 (July ?, 2017)
+
+**Fixes**
+- user -> getEmail
+
 ### v1.2.0 (Mar 10, 2017)
 
 **New**

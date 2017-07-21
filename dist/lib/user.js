@@ -88,10 +88,10 @@ var User_ = function (mtr) {
 
                 var label = '';
 
-                if (user.username) {
-                    label = user.username;
-                } else if (user.profile && user.profile.firstName) {
+                if (user.profile && user.profile.firstName) {
                     label = user.profile.firstName;
+                } else if (user.username) {
+                    label = user.username;
                 } else if (User_.getEmail(id) !== '' && isEmail) {
                     label = User_.getEmail(id);
                 }
@@ -108,9 +108,9 @@ var User_ = function (mtr) {
 
                 var email = '';
 
-                if (user.registered_emails && user.registered_emails.length) {
+                if (user && user.registered_emails && user.registered_emails.length) {
                     email = user.registered_emails[0].address;
-                } else if (user.emails && user.emails.length) {
+                } else if (user && user.emails && user.emails.length) {
                     email = user.emails[0].address;
                 }
 
@@ -143,12 +143,16 @@ var User_ = function (mtr) {
         }, {
             key: 'getLanguage',
             value: function getLanguage(id) {
+                var isDef = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+
                 var user = User_.getUser(id);
 
                 if (user && user.profile && user.profile.language) {
                     return user.profile.language;
-                } else {
+                } else if (isDef) {
                     return User_.defaultLanguage;
+                } else {
+                    return null;
                 }
             }
 

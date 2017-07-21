@@ -82,10 +82,10 @@ const User_ = ((mtr) => {
 
             let label = '';
 
-            if (user.username) {
-                label = user.username;
-            } else if (user.profile && user.profile.firstName) {
+            if (user.profile && user.profile.firstName) {
                 label = user.profile.firstName;
+            } else if (user.username) {
+                label = user.username;
             } else if (User_.getEmail(id) !== '' && isEmail) {
                 label = User_.getEmail(id);
             }
@@ -99,9 +99,9 @@ const User_ = ((mtr) => {
 
             let email = '';
 
-            if (user.registered_emails && user.registered_emails.length) {
+            if (user && user.registered_emails && user.registered_emails.length) {
                 email = user.registered_emails[0].address;
-            } else if (user.emails && user.emails.length) {
+            } else if (user && user.emails && user.emails.length) {
                 email = user.emails[0].address;
             }
 
@@ -127,13 +127,15 @@ const User_ = ((mtr) => {
         }
 
         // Get language
-        static getLanguage(id) {
+        static getLanguage(id, isDef=true) {
             let user = User_.getUser(id);
 
             if (user && user.profile && user.profile.language) {
                 return user.profile.language;
-            } else {
+            } else if(isDef) {
                 return User_.defaultLanguage;
+            } else {
+                return null;
             }
         }
 
