@@ -1,3 +1,5 @@
+import _ from 'underscore';
+
 const String_ = ((mtr) => {
 
     // ------------------------------------------------------------------------
@@ -96,6 +98,16 @@ const String_ = ((mtr) => {
         // Repeat
         static repeat(string, times) {
             return new Array(times + 1).join(string);
+        }
+
+        // Get Default
+        static getDefault(string, default_val) {
+            if (string){
+                return string;
+            }
+            else{
+                return default_val !== undefined ? default_val : '';
+            }
         }
 
         // Static Private

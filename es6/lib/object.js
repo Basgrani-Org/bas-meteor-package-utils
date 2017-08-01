@@ -1,4 +1,5 @@
 import string from './string';
+import _ from 'underscore';
 
 const Object_ = ((mtr) => {
 
@@ -94,6 +95,16 @@ const Object_ = ((mtr) => {
                 }
             }
             return results;
+        }
+
+        // Get Default
+        static getDefault(obj, key, default_val) {
+            if (obj && _.has(obj, key)){
+                return obj[key];
+            }
+            else{
+                return default_val !== undefined ? default_val : '';
+            }
         }
 
         // Static Private

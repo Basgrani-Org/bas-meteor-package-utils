@@ -12,6 +12,10 @@ var _string = require('./string');
 
 var _string2 = _interopRequireDefault(_string);
 
+var _underscore = require('underscore');
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -118,6 +122,18 @@ var Object_ = function (mtr) {
                     }
                 }
                 return results;
+            }
+
+            // Get Default
+
+        }, {
+            key: 'getDefault',
+            value: function getDefault(obj, key, default_val) {
+                if (obj && _underscore2.default.has(obj, key)) {
+                    return obj[key];
+                } else {
+                    return default_val !== undefined ? default_val : '';
+                }
             }
 
             // Static Private

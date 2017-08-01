@@ -1,5 +1,10 @@
 ## CHANGELOG
 
+### v1.2.2 (Aug 1, 2017)
+
+**New**
+- Add getDefault function to match, object, string, lib
+
 ### v1.2.1 (July 22, 2017)
 
 **Fixes**

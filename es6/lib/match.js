@@ -1,3 +1,5 @@
+import _ from 'underscore';
+
 const Match_ = ((mtr) => {
 
     // ------------------------------------------------------------------------
@@ -42,6 +44,16 @@ const Match_ = ((mtr) => {
                 return x >= 0;
             });
             check(number, _positive);
+        }
+
+        // Get Default
+        static getDefault(number, default_val) {
+            if (_.isNumber(number)){
+                return number;
+            }
+            else{
+                return default_val !== undefined ? default_val : 0;
+            }
         }
 
         // Static Private
