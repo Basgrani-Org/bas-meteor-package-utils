@@ -7,4 +7,4 @@ if (typeof window !== "undefined" && typeof window.BasMTR === "undefined") {
 
 BasMTR.Utils = {};
 
-BasMTR.Utils.VERSION = '1.2.0';
+BasMTR.Utils.VERSION = '1.2.2';
