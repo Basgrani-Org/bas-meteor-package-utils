@@ -10,6 +10,7 @@ const Helps_ = ((mtr) => {
     // Vars
     // ------------------------------------------------------------------------
 
+    let delayIds = [];
 
     // ------------------------------------------------------------------------
     // Class Definition
@@ -28,22 +29,19 @@ const Helps_ = ((mtr) => {
             return VERSION;
         }
 
-        static get delay() {
-            return (function () {
-                let timer = 0;
-                return function (callback, ms) {
-                    clearTimeout(timer);
-                    timer = setTimeout(callback, ms);
-                };
-            })();
-        }
-
         // Public
         // ------------------------------------------------------------------------
 
 
         // Static
         // ------------------------------------------------------------------------
+
+        // Delay
+        static delay(callback, ms, args, id=0) {
+            clearTimeout(delayIds[id] ? delayIds[id]:0);
+            delayIds[id] = setTimeout(callback, ms, args);
+            return delayIds[id];
+        }
 
         // Get image Base 64
         static getImgBase64(src) {

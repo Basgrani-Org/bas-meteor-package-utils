@@ -20,6 +20,7 @@ var Helps_ = function (mtr) {
     // Vars
     // ------------------------------------------------------------------------
 
+    var delayIds = [];
 
     // ------------------------------------------------------------------------
     // Class Definition
@@ -34,7 +35,7 @@ var Helps_ = function (mtr) {
         // ------------------------------------------------------------------------
 
         _createClass(Helps_, null, [{
-            key: "getImgBase64",
+            key: "delay",
 
 
             // Public
@@ -44,7 +45,19 @@ var Helps_ = function (mtr) {
             // Static
             // ------------------------------------------------------------------------
 
+            // Delay
+            value: function delay(callback, ms, args) {
+                var id = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
+
+                clearTimeout(delayIds[id] ? delayIds[id] : 0);
+                delayIds[id] = setTimeout(callback, ms, args);
+                return delayIds[id];
+            }
+
             // Get image Base 64
+
+        }, {
+            key: "getImgBase64",
             value: function getImgBase64(src) {
                 return src.indexOf('data:image') !== -1 ? src.replace(/^data:image\/(png|jpg|jpeg|gif);base64,/, "") : null;
             }
@@ -82,17 +95,6 @@ var Helps_ = function (mtr) {
             key: "VERSION",
             get: function get() {
                 return VERSION;
-            }
-        }, {
-            key: "delay",
-            get: function get() {
-                return function () {
-                    var timer = 0;
-                    return function (callback, ms) {
-                        clearTimeout(timer);
-                        timer = setTimeout(callback, ms);
-                    };
-                }();
             }
         }]);
 

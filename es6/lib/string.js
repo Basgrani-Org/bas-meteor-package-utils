@@ -100,12 +100,20 @@ const String_ = ((mtr) => {
             return new Array(times + 1).join(string);
         }
 
+        // Get Attribute
+        static getAttribute(string, key) {
+            let _key = key+'="';
+            let start = string.indexOf(_key) + _key.length;
+            let end   = string.indexOf('"', start + 1);
+            return string.substring(start, end);
+        }
+
         // Get Default
         static getDefault(string, default_val) {
-            if (string){
+            if (string) {
                 return string;
             }
-            else{
+            else {
                 return default_val !== undefined ? default_val : '';
             }
         }

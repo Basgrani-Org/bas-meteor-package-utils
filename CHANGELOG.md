@@ -1,5 +1,10 @@
 ## CHANGELOG
 
+### v1.2.3 (Aug 22, 2017)
+
+**Fixes**
+- helps -> delay
+
 ### v1.2.2 (Aug 1, 2017)
 
 **New**

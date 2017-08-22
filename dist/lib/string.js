@@ -126,6 +126,17 @@ var String_ = function (mtr) {
                 return new Array(times + 1).join(string);
             }
 
+            // Get Attribute
+
+        }, {
+            key: 'getAttribute',
+            value: function getAttribute(string, key) {
+                var _key = key + '="';
+                var start = string.indexOf(_key) + _key.length;
+                var end = string.indexOf('"', start + 1);
+                return string.substring(start, end);
+            }
+
             // Get Default
 
         }, {
