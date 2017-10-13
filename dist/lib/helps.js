@@ -87,6 +87,20 @@ var Helps_ = function (mtr) {
                 return pattern.test(str);
             }
 
+            // Get Default
+
+        }, {
+            key: "getDefault",
+            value: function getDefault(fn) {
+                var default_val = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
+
+                try {
+                    return fn() !== undefined ? fn() : default_val;
+                } catch (err) {
+                    return default_val;
+                }
+            }
+
             // Static Private
             // ------------------------------------------------------------------------
 

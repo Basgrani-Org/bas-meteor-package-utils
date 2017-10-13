@@ -1,5 +1,12 @@
 ## CHANGELOG
 
+### v1.2.4 (Oct 13, 2017)
+
+**New**
+- add "parentTemplate" function in Blaze
+- add "addBodyClass" function in Blaze
+- add "getDefault" function in help
+
 ### v1.2.3 (Aug 22, 2017)
 
 **Fixes**

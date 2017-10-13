@@ -23,6 +23,7 @@ var Template_ = function (mtr, $) {
     // ------------------------------------------------------------------------
 
     var _isDev = void 0;
+    var _addBodyClassPrevSing = void 0;
 
     // ------------------------------------------------------------------------
     // Class Definition
@@ -99,6 +100,39 @@ var Template_ = function (mtr, $) {
             }
         });
     }
+
+    // Get the parent template instance
+    Blaze.TemplateInstance.prototype.parentTemplate = function (levels) {
+        var view = this.view;
+        if (typeof levels === "undefined") {
+            levels = 1;
+        }
+        while (view) {
+            if (view.name.substring(0, 9) === "Template." && !levels--) {
+                return view.templateInstance();
+            }
+            view = view.parentView;
+        }
+    };
+
+    // Add body class
+    Blaze.addBodyClass = function (fn) {
+        if ($.isArray(fn)) {
+            return fn.forEach(Blaze.addBodyClass);
+        }
+        if (typeof fn !== 'function') {
+            $('body').removeClass(_addBodyClassPrevSing);
+            return mtr.startup(function () {
+                $('body').addClass(_addBodyClassPrevSing = fn);
+            });
+        }
+
+        mtr.startup(function () {
+            Tracker.autorun(function () {
+                $('body').removeClass(fn._prev).addClass(fn._prev = fn());
+            });
+        });
+    };
 
     // ------------------------------------------------------------------------
     // Meteor

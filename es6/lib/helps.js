@@ -37,8 +37,8 @@ const Helps_ = ((mtr) => {
         // ------------------------------------------------------------------------
 
         // Delay
-        static delay(callback, ms, args, id=0) {
-            clearTimeout(delayIds[id] ? delayIds[id]:0);
+        static delay(callback, ms, args, id = 0) {
+            clearTimeout(delayIds[id] ? delayIds[id] : 0);
             delayIds[id] = setTimeout(callback, ms, args);
             return delayIds[id];
         }
@@ -65,6 +65,16 @@ const Helps_ = ((mtr) => {
                 '(\\?[;&a-z\\d%_.~+=-]*)?' + // query string
                 '(\\#[-a-z\\d_]*)?$', 'i'); // fragment locator
             return pattern.test(str);
+        }
+
+        // Get Default
+        static getDefault(fn, default_val = undefined) {
+            try {
+                return fn() !== undefined ? fn() : default_val;
+            }
+            catch (err) {
+                return default_val;
+            }
         }
 
         // Static Private
