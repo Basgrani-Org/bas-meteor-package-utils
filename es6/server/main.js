@@ -129,7 +129,7 @@ const Server_ = ((mtr) => {
     mtr.methods({
         'BasMTR:isDev': function () {
             return Server_.isDev;
-        }
+        },
     });
 
     // ------------------------------------------------------------------------

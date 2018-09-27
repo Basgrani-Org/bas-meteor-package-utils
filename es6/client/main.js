@@ -54,7 +54,7 @@ const Client_ = ((mtr, $) => {
                 status    : false,
                 toolbar   : false,
                 top       : 0,
-                width     : 500
+                width     : 500,
             };
 
             let options = $.extend({}, defaults, opts);
