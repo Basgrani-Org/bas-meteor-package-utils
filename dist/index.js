@@ -7,7 +7,7 @@ require('./lib');
 // Is Server.
 // Import Init
 if (Meteor.isServer) {
-    require('./server');
+  require('./server');
 }
 
 // Is Client
@@ -15,5 +15,5 @@ if (Meteor.isServer) {
 
 // Import libs
 if (Meteor.isClient) {
-    require('./client');
+  require('./client');
 }

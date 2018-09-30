@@ -6,10 +6,10 @@ import './lib';
 
 // Is Server.
 if (Meteor.isServer) {
-    require('./server');
+  require('./server');
 }
 
 // Is Client
 if (Meteor.isClient) {
-    require('./client');
+  require('./client');
 }

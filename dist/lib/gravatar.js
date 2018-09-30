@@ -1,7 +1,7 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -19,114 +19,117 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Gravatar_ = function (mtr) {
+  // ------------------------------------------------------------------------
+  // Constants
+  // ------------------------------------------------------------------------
 
-    // ------------------------------------------------------------------------
-    // Constants
-    // ------------------------------------------------------------------------
+  var VERSION = BasMTR.Utils.VERSION;
 
-    var VERSION = BasMTR.Utils.VERSION;
-
-    // ------------------------------------------------------------------------
-    // Vars
-    // ------------------------------------------------------------------------
-
-
-    // ------------------------------------------------------------------------
-    // Class Definition
-    // ------------------------------------------------------------------------
-
-    var Gravatar_ = function () {
-        function Gravatar_() {
-            _classCallCheck(this, Gravatar_);
-        }
-
-        // Getters
-        // ------------------------------------------------------------------------
-
-        _createClass(Gravatar_, null, [{
-            key: 'imageUrl',
+  // ------------------------------------------------------------------------
+  // Vars
+  // ------------------------------------------------------------------------
 
 
-            // Public
-            // ------------------------------------------------------------------------
+  // ------------------------------------------------------------------------
+  // Class Definition
+  // ------------------------------------------------------------------------
+
+  var Gravatar_ = function () {
+    function Gravatar_() {
+      _classCallCheck(this, Gravatar_);
+    }
+
+    _createClass(Gravatar_, null, [{
+      key: 'imageUrl',
 
 
-            // Static
-            // ------------------------------------------------------------------------
-
-            // Image url
-            value: function imageUrl(emailOrHash, options) {
-                options = options || {};
-
-                // Want HTTPS ?
-                var url = options.secure ? 'https://secure.gravatar.com/avatar/' : 'http://www.gravatar.com/avatar/';
-                delete options.secure;
-
-                // Is it an MD5 already ?
-                url += Gravatar_._isHash(emailOrHash) ? emailOrHash : Gravatar_._hash(emailOrHash);
-
-                // Have any options to pass ?
-                var params = _underscore2.default.map(options, function (val, key) {
-                    return key + '=' + encodeURI(val);
-                }).join('&');
-
-                return params.length > 0 ? url + '?' + params : url;
-            }
-
-            // Static Private
-            // ------------------------------------------------------------------------
-
-            // Clear string
-
-        }, {
-            key: '_cleanString',
-            value: function _cleanString(string) {
-                return string.trim().toLowerCase();
-            }
-
-            // Is hash
-
-        }, {
-            key: '_isHash',
-            value: function _isHash(string) {
-                return (/^[a-f0-9]{32}$/i.test(Gravatar_._cleanString(string))
-                );
-            }
-
-            // Hash
-
-        }, {
-            key: '_hash',
-            value: function _hash(string) {
-                return (0, _md2.default)(Gravatar_._cleanString(string), 'hex').toString();
-            }
-        }, {
-            key: 'VERSION',
-            get: function get() {
-                return VERSION;
-            }
-        }]);
-
-        return Gravatar_;
-    }();
-
-    // ------------------------------------------------------------------------
-    // Init
-    // ------------------------------------------------------------------------
+      // Public
+      // ------------------------------------------------------------------------
 
 
-    // ------------------------------------------------------------------------
-    // Meteor
-    // ------------------------------------------------------------------------
+      // Static
+      // ------------------------------------------------------------------------
 
-    // Meteor startup
+      // Image url
+      value: function imageUrl(emailOrHash, options) {
+        options = options || {};
 
+        // Want HTTPS ?
+        var url = options.secure ? 'https://secure.gravatar.com/avatar/' : 'http://www.gravatar.com/avatar/';
+        delete options.secure;
 
-    mtr.startup(function () {
-        //...
-    });
+        // Is it an MD5 already ?
+        url += Gravatar_._isHash(emailOrHash) ? emailOrHash : Gravatar_._hash(emailOrHash);
+
+        // Have any options to pass ?
+        var params = _underscore2.default.map(options, function (val, key) {
+          return key + '=' + encodeURI(val);
+        }).join('&');
+
+        return params.length > 0 ? url + '?' + params : url;
+      }
+
+      // Static Private
+      // ------------------------------------------------------------------------
+
+      // Clear string
+
+    }, {
+      key: '_cleanString',
+      value: function _cleanString(string) {
+        return string.trim().toLowerCase();
+      }
+
+      // Is hash
+
+    }, {
+      key: '_isHash',
+      value: function _isHash(string) {
+        return (/^[a-f0-9]{32}$/i.test(Gravatar_._cleanString(string))
+        );
+      }
+
+      // Hash
+
+    }, {
+      key: '_hash',
+      value: function _hash(string) {
+        return (0, _md2.default)(Gravatar_._cleanString(string), 'hex').toString();
+      }
+    }, {
+      key: 'VERSION',
+
+      /* constructor() {
+       } */
+
+      // Getters
+      // ------------------------------------------------------------------------
+
+      get: function get() {
+        return VERSION;
+      }
+    }]);
 
     return Gravatar_;
+  }();
+
+  // ------------------------------------------------------------------------
+  // Init
+  // ------------------------------------------------------------------------
+
+
+  // ------------------------------------------------------------------------
+  // Meteor
+  // ------------------------------------------------------------------------
+
+  // Meteor startup
+
+
+  mtr.startup(function () {
+    // ...
+  });
+
+  return Gravatar_;
 }(Meteor);
 
 BasMTR.Gravatar = Gravatar_;
